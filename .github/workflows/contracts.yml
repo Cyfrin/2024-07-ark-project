@@ -1,0 +1,59 @@
+name: Contracts
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - "apps/blockchain/**"
+  pull_request:
+    branches: [main, dev]
+  workflow_dispatch:
+
+env:
+  SCARB_VERSION: v0.6.0
+
+jobs:
+  test-starknet-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: software-mansion/setup-scarb@v1
+        with:
+          tool-versions: apps/blockchain/starknet/.tool-versions
+      - uses: foundry-rs/setup-snfoundry@v3
+        with:
+          tool-versions: apps/blockchain/starknet/.tool-versions
+      - run: scarb build
+        working-directory: apps/blockchain/starknet
+      - run: snforge test
+        working-directory: apps/blockchain/starknet
+      
+
+  test-ethereum-contracts:
+    strategy:
+      fail-fast: true
+
+    name: Foundry testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Run Forge build
+        run: |
+          forge --version
+          forge build --sizes --root apps/blockchain/ethereum/
+        id: build
+
+      - name: Run Forge tests
+        run: |
+          forge test -vvv --root apps/blockchain/ethereum/
+        id: test
+

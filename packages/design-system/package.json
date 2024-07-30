@@ -1,0 +1,23 @@
+{
+  "name": "design-system",
+  "version": "0.0.0",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"**/*.ts*\""
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "tailwind-config": "*",
+    "tsconfig": "*"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.4",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "clsx": "^2.1.0",
+    "react": "18.2.0",
+    "tailwind-merge": "^2.2.1"
+  }
+}

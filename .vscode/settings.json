@@ -1,0 +1,4 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "rust-analyzer.linkedProjects": ["${workspaceFolder}/apps/indexer/Cargo.toml"]
+}
