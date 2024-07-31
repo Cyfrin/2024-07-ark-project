@@ -125,6 +125,11 @@ On mainnet, only the following collections are whitelisted:
 
 ## Setup
 
+## Clone the Repo:
+```bash
+git clone --recursive https://github.com/Cyfrin/2024-07-ark-project.git
+```
+
 Unit tests for smart contracts are available, using [foundry](https://book.getfoundry.sh/) and [starknet foundry](https://foundry-rs.github.io/starknet-foundry/index.html)
 
 ### Ethereum tests:
