@@ -159,4 +159,6 @@ Known Issues:
 
 - Bridge admin is a trusted role.
 
+**Additional Known Issues as detected by LightChaser, available [here](https://github.com/Cyfrin/2024-07-ark-project/issues/2)**
+
 [//]: # (known-issues-close)
