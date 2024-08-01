@@ -102,6 +102,8 @@ starknet/src/
 └── tests.cairo
 ```
 
+**Please Note: Tests are _not_ in scope. Several contracts may include embedded tests tagged with `#[cfg(test)`, issues with tests or test values will not be considered valid**
+
 
 ## Compatibilities
 
